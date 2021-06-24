@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to utility’s documentation! &#8212; utility  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-utility-s-documentation">
+<h1>Welcome to utility’s documentation!<a class="headerlink" href="#welcome-to-utility-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="simple">
+<dt>def create_sdm(fv_mat, num_fv_per_shingle):</dt><dd><p>“””
+Creates self-dissimilarity matrix; this matrix is found by creating audio
+shingles from feature vectors, and finding the cosine distance between
+shingles.</p>
+</dd>
+</dl>
+<p>Args</p>
+<dl class="simple">
+<dt>fv_mat: np.array</dt><dd><p>matrix of feature vectors where each column is a timestep and each row
+includes feature information i.e. an array of 144 columns/beats and 12
+rows corresponding to chroma values</p>
+</dd>
+<dt>num_fv_per_shingle: int</dt><dd><p>number of feature vectors per audio shingle</p>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="simple">
+<dt>self_dissim_mat: np.array</dt><dd><p>self dissimilarity matrix with paired cosine distances between
+shingles</p>
+</dd>
+</dl>
+<p>“””</p>
+<dl class="simple">
+<dt>fv_mat: np.array</dt><dd><p>matrix of feature vectors where each column is a timestep and each row
+includes feature information i.e. an array of 144 columns/beats and 12
+rows corresponding to chroma values</p>
+</dd>
+<dt>num_fv_per_shingle: int</dt><dd><p>number of feature vectors per audio shingle</p>
+</dd>
+</dl>
+<p>“””</p>
+<blockquote>
+<div><p>[num_rows, num_columns] = fv_mat.shape</p>
+<dl>
+<dt>if num_fv_per_shingle == 1:</dt><dd><p>mat_as = fv_mat</p>
+</dd>
+<dt>else:</dt><dd><dl>
+<dt>mat_as = np.zeros(((num_rows * num_fv_per_shingle),</dt><dd><p>(num_columns - num_fv_per_shingle + 1)))</p>
+</dd>
+<dt>for i in range(1, num_fv_per_shingle + 1):</dt><dd><p># Use feature vectors to create an audio shingle
+# for each time step and represent these shingles
+# as vectors by stacking the relevant feature
+# vectors on top of each other
+mat_as[((i - 1)*num_rows + 1) - 1:(i*num_rows), : ] = fv_mat[:,</p>
+<blockquote>
+<div><p>i - 1:(num_columns- num_fv_per_shingle + i)]</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+<p># Build the pairwise-cosine distance matrix between audio shingles
+sdm_row = spd.pdist(mat_as.T, ‘cosine’)</p>
+<p># Build self dissimilarity matrix by changing the condensed
+# pairwise-cosine distance matrix to a redundant matrix
+self_dissim_mat = spd.squareform(sdm_row)</p>
+<p>return self_dissim_mat</p>
+</div></blockquote>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">utility</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Chenhui.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
