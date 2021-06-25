@@ -3,6 +3,21 @@
 Created on Fri Jun 25 17:24:32 2021
 
 @author: Administrator
+
+utilities.py 
+
+This script when imported as a module allows search.py, transform.py and 
+assemble.py in the ah package to run smoothly. 
+
+This file contains the following functions:
+    
+    * create_sdm - Creates a self-dissimilarity matrix; this matrix is found 
+    by creating audio shingles from feature vectors, and finding cosine 
+    distance between shingles. 
+    
+    
+    * find_initial_repeats - Finds all diagonals present in thresh_mat, 
+    removing each diagonal as it is found.
 """
 
 

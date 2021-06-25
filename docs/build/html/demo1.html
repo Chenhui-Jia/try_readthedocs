@@ -41,6 +41,31 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="demo1.create_sdm">
+<code class="sig-prename descclassname">demo1.</code><code class="sig-name descname">create_sdm</code><span class="sig-paren">(</span><em class="sig-param">fv_mat</em>, <em class="sig-param">num_fv_per_shingle</em><span class="sig-paren">)</span><a class="headerlink" href="#demo1.create_sdm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates self-dissimilarity matrix; this matrix is found by creating audio
+shingles from feature vectors, and finding the cosine distance between
+shingles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fv_mat</strong> (<em>np.array</em>) – matrix of feature vectors where each column is a timestep and each row
+includes feature information i.e. an array of 144 columns/beats and 12
+rows corresponding to chroma values</p></li>
+<li><p><strong>num_fv_per_shingle</strong> (<em>int</em>) – number of feature vectors per audio shingle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>self_dissim_mat</strong> – self dissimilarity matrix with paired cosine distances between
+shingles</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="demo1.google_style">
 <code class="sig-prename descclassname">demo1.</code><code class="sig-name descname">google_style</code><span class="sig-paren">(</span><em class="sig-param">arg1</em>, <em class="sig-param">arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#demo1.google_style" title="Permalink to this definition">¶</a></dt>
 <dd><p>函数功能.</p>
