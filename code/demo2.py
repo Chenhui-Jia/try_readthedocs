@@ -15,9 +15,9 @@ This file contains the following functions:
     by creating audio shingles from feature vectors, and finding cosine 
     distance between shingles. 
     
-    
     * find_initial_repeats - Finds all diagonals present in thresh_mat, 
     removing each diagonal as it is found.
+    
 """
 
 

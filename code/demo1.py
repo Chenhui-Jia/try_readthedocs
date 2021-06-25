@@ -50,7 +50,7 @@ def numpy_style(arg1, arg2):
         return True
 
 def create_sdm(fv_mat, num_fv_per_shingle):
-    """
+    """intro
     Creates self-dissimilarity matrix; this matrix is found by creating audio 
     shingles from feature vectors, and finding the cosine distance between 
     shingles.
