@@ -1,7 +1,7 @@
-search module
-=============
+demo1 module
+============
 
-.. automodule:: search
+.. automodule:: demo1
    :members:
    :undoc-members:
    :show-inheritance:

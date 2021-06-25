@@ -1,11 +1,8 @@
-aligned-hierarchies
-===================
+code
+====
 
 .. toctree::
    :maxdepth: 4
 
-   assemble
-   example
-   search
-   transform
-   utilities
+   demo1
+   demo2

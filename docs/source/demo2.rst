@@ -1,7 +1,7 @@
-example module
-==============
+demo2 module
+============
 
-.. automodule:: example
+.. automodule:: demo2
    :members:
    :undoc-members:
    :show-inheritance:
