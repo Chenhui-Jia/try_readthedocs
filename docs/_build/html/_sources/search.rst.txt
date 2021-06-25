@@ -1,7 +1,7 @@
-example module
-==============
+search module
+=============
 
-.. automodule:: example
+.. automodule:: search
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,7 +1,7 @@
-Example
-=======
-
+example module
+==============
 
 .. automodule:: example
-   :members: csv_to_aligned_hierarchies
-
+   :members:
+   :undoc-members:
+   :show-inheritance:

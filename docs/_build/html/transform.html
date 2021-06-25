@@ -1,54 +1,39 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Transform &#8212; aligned-hierarchies 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <title>transform module &#8212; aligned-hierarchies 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Assemble" href="assemble.html" />
-    <link rel="prev" title="Utilities" href="utilities.html" /> 
+    <link rel="next" title="utilities module" href="utilities.html" />
+    <link rel="prev" title="search module" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
   </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="assemble.html" title="Assemble"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="utilities.html" title="Utilities"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">aligned-hierarchies 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Transform</a></li> 
-      </ul>
-    </div>  
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
-  <section id="transform">
-<h1>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h1>
-<section id="module-transform">
-<span id="functions"></span><h2>Functions<a class="headerlink" href="#module-transform" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="module-transform">
+<span id="transform-module"></span><h1>transform module<a class="headerlink" href="#module-transform" title="Permalink to this headline">¶</a></h1>
 <p>transform.py</p>
 <p>This script contains functions that transform matrix inputs into different
 forms that are of use in bigger functions where they are called. These functions
@@ -72,87 +57,9 @@ Finally, the annotation markers are checked and fixed if necessary.</p>
 <p>a matrix representation. The matrix representation is a visual record of
 where all of the repeats in a song start and end.</p>
 </div></blockquote>
-<dl class="py function">
-<dt class="sig sig-object py" id="transform.__create_anno_remove_overlaps">
-<span class="sig-prename descclassname"><span class="pre">transform.</span></span><span class="sig-name descname"><span class="pre">__create_anno_remove_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">song_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transform.__create_anno_remove_overlaps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Turns k_mat into marked rows with annotation markers for the start indices
-and zeroes otherwise. After removing the annotations that have overlaps,
-the function outputs k_lst_out which only contains rows that have no overlaps,
-then takes the annotations that have overlaps from k_lst_out and puts them
-in overlap_lst. Lastly, it checks if the proper sequence of annotation markers
-was given and fix them if necessary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k_mat</strong> (<em>np.array</em>) – List of pairs of repeats of length 1 with annotations
-marked. The first two columns refer to the first repeat
-of the pair, the second two refer to the second repeat of
-the pair, the fifth column refers to the length of the
-repeats, and the sixth column contains the annotation markers.</p></li>
-<li><p><strong>song_length</strong> (<em>int</em>) – Number of audio shingles</p></li>
-<li><p><strong>band_width</strong> (<em>int</em>) – Length of repeats encoded in k_mat</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>pattern_row</strong> (<em>np.array</em>) – Row that marks where non-overlapping repeats occur,
-marking start indices with annotation markers and
-0’s otherwise</p></li>
-<li><p><strong>k_lst_out</strong> (<em>np.array</em>) – List of pairs of repeats of length band_width that
-contain no overlapping repeats with annotations
-marked</p></li>
-<li><p><strong>overlap_lst</strong> (<em>np.array</em>) – List of pairs of repeats of length band_width that
-contain overlapping repeats with annotations marked</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="transform.__separate_anno_markers">
-<span class="sig-prename descclassname"><span class="pre">transform.</span></span><span class="sig-name descname"><span class="pre">__separate_anno_markers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">song_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern_row</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transform.__separate_anno_markers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Expands pattern_row, a row vector that marks where non-overlapping
-repeats occur, into a matrix representation or np.array. The dimension of
-this array is twice the pairs of repeats by song_length. k_mat provides
-a list of annotation markers that is used in separating the repeats of
-length band_width into individual rows. Each row will mark the start and
-end time steps of a repeat with 1’s and 0’s otherwise. The array is a
-visual record of where all of the repeats in a song start and end.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>k_mat</strong> (<em>np.array</em>) – List of pairs of repeats of length band_width with annotations
-marked. The first two columns refer to the start and end time
-steps of the first repeat of the pair, the second two refer to
-the start and end time steps of second repeat of the pair, the
-fifth column refers to the length of the repeats, and the sixth
-column contains the annotation markers. We will be indexing into
-the sixth column to obtain a list of annotation markers.</p></li>
-<li><p><strong>song_length</strong> (<em>int</em>) – Number of audio shingles</p></li>
-<li><p><strong>band_width</strong> (<em>int</em>) – Length of repeats encoded in k_mat</p></li>
-<li><p><strong>pattern_row</strong> (<em>np.array</em>) – Row vector of the length of the song that marks where
-non-overlapping repeats occur with the repeats’ corresponding
-annotation markers and 0’s otherwise</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>pattern_mat</strong> (<em>np.array</em>) – Matrix representation where each row contains a group of repeats
-marked</p></li>
-<li><p><strong>pattern_key</strong> (<em>np.array</em>) – Column vector containing the lengths of the repeats encoded in
-each row of pattern_mat</p></li>
-<li><p><strong>anno_id_lst</strong> (<em>np.array</em>) – Column vector containing the annotation markers of the repeats
-encoded in each row of pattern_mat</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="transform.remove_overlaps">
-<span class="sig-prename descclassname"><span class="pre">transform.</span></span><span class="sig-name descname"><span class="pre">remove_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">song_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transform.remove_overlaps" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="transform.remove_overlaps">
+<code class="sig-prename descclassname">transform.</code><code class="sig-name descname">remove_overlaps</code><span class="sig-paren">(</span><em class="sig-param">input_mat</em>, <em class="sig-param">song_length</em><span class="sig-paren">)</span><a class="headerlink" href="#transform.remove_overlaps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes any pairs of repeat length and specific annotation marker
 where there exists at least one pair of repeats that overlap in time</p>
 <dl class="field-list simple">
@@ -187,37 +94,42 @@ that do overlap in time.</p></li>
 </dl>
 </dd></dl>
 
-</section>
-</section>
+</div>
 
 
-            <div class="clearer"></div>
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Transform</a><ul>
-<li><a class="reference internal" href="#module-transform">Functions</a></li>
-</ul>
-</li>
+<h1 class="logo"><a href="index.html">aligned-hierarchies</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assemble.html">assemble module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">example module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">search module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">transform module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">utilities module</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="utilities.html"
-                        title="previous chapter">Utilities</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="assemble.html"
-                        title="next chapter">Assemble</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/transform.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="search.html" title="previous chapter">search module</a></li>
+      <li>Next: <a href="utilities.html" title="next chapter">utilities module</a></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -228,32 +140,32 @@ that do overlap in time.</p></li>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="assemble.html" title="Assemble"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="utilities.html" title="Utilities"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">aligned-hierarchies 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Transform</a></li> 
-      </ul>
+    <div class="footer">
+      &copy;2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/transform.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Katherine M Kinnaird, Eleanor Donaher, Lizette Carpenter, Jordan Moody, Denise Nava.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
-    </div>
+
+    
+
+    
   </body>
 </html>

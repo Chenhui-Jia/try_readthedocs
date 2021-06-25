@@ -1,11 +1,7 @@
-Transform
-========
-
-
-
-Functions
----------
-
+transform module
+================
 
 .. automodule:: transform
-   :members: remove_overlaps, __create_anno_remove_overlaps, __separate_anno_markers
+   :members:
+   :undoc-members:
+   :show-inheritance:
