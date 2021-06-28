@@ -81,18 +81,22 @@ def create_sdm(fv_mat, num_fv_per_shingle):
             mat_as = np.zeros(((num_rows * num_fv_per_shingle),
                                (num_columns - num_fv_per_shingle + 1)))
             for i in range(1, num_fv_per_shingle + 1):
-                # Use feature vectors to create an audio shingle
-                # for each time step and represent these shingles
-                # as vectors by stacking the relevant feature
-                # vectors on top of each other
+                """ Use feature vectors to create an audio shingle
+                 for each time step and represent these shingles
+                 as vectors by stacking the relevant feature
+                 vectors on top of each other
+                 
+                """
                 mat_as[((i - 1)*num_rows + 1) - 1:(i*num_rows), : ] = fv_mat[:, 
                                    i - 1:(num_columns- num_fv_per_shingle + i)]
     
-        # Build the pairwise-cosine distance matrix between audio shingles
+        """Build the pairwise-cosine distance matrix between audio shingles"""
         sdm_row = spd.pdist(mat_as.T, 'cosine')
         
-        # Build self dissimilarity matrix by changing the condensed 
-        # pairwise-cosine distance matrix to a redundant matrix
+        """Build self dissimilarity matrix by changing the condensed 
+           pairwise-cosine distance matrix to a redundant matrix
+           
+        """
         self_dissim_mat = spd.squareform(sdm_row)
         
         return self_dissim_mat
