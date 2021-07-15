@@ -61,18 +61,6 @@ Talk about librosa
 - The functions in the transform module change their inputs to be of use in the larger functions of assemble.py. The transformations mainly include removing overlapping repeats of the same width and annotation.
 - The assemble module assembles the aligned hierarchies with functions that first create the essential structure components and then piece them together to create the final product. 
 
-
-# AH example
-- similar to the AH_examples jupyter notebook 
-- include diagrams from AH_examples: Something to try to visualize each step
-
-
-# 5. Other Features 
-
-# 6. Conclusions 
-
-
-
 # References
 
 
