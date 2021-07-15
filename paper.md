@@ -60,6 +60,19 @@ Talk about librosa
 - The search module has functions that find the various repeated structures and generate information about them, such as their width and annotations
 - The functions in the transform module change their inputs to be of use in the larger functions of assemble.py. The transformations mainly include removing overlapping repeats of the same width and annotation.
 - The assemble module assembles the aligned hierarchies with functions that first create the essential structure components and then piece them together to create the final product. 
+[@Kinnaird:2014] 
+
+[@MuellerZ19_FMP_ISMIR]
+
+[@brian_mcfee-proc-scipy-2015]
+
+[@amen]
+
+[@Raffel14mir_eval:a]
+
+[@Bittner19mirdata]
+
+
 
 # References
 
